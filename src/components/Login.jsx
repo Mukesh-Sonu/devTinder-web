@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router";
-import { BASE_URL } from "../utils/constants";
+import { BASE_URL, position, autoClose } from "../utils/constants";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -31,7 +32,13 @@ const Login = () => {
       dispatch(addUser(data));
       navigate("/feed");
     } catch (error) {
-      setError(error?.response?.data?.message || "Something went wrong!");
+      const errorMessage =
+        error?.response?.data?.message || "Something went wrong!";
+      setError(errorMessage);
+      toast.error(errorMessage, {
+        position,
+        autoClose,
+      });
     }
   };
 

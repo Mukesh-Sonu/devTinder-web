@@ -28,12 +28,10 @@ const Navbar = () => {
     }
   };
 
-  console.log(userData);
-
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-300 shadow-sm">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost text-xl">
+        <Link to="/feed" className="btn btn-ghost text-xl">
           🧑‍💻 DevTinder
         </Link>
       </div>
@@ -59,6 +57,12 @@ const Navbar = () => {
             >
               <li>
                 <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <Link to="/connections">Connections</Link>
+              </li>
+              <li>
+                <Link to="/requests">Requests</Link>
               </li>
               <li>
                 <Link onClick={handleLogout}>Logout</Link>
