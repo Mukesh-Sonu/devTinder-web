@@ -10,9 +10,18 @@
 
   - install dependencies using npm
   - run npm run build (dist folder created)
-  - install ngnix(provides you web server, you can host the application) - sudo apt update (to update your machine) - sudo apt install nginx (install nginx) - sudo systemctl start nginx (start nginx) - sudo systemctl enable nginx (to and run nginx) - sudo scp -r dist/\* /var/www/html/ - Copy code from dist(build files) to /var/www/html (We are copy our dist to html folder) - Enable port 80 of you instance (In AWS go to instance -> Security -> Security groups)
-    -Backend - update DB password - allowed ec2 instance public IP on mongodb server - npm install pm2 -g
+  - install ngnix(provides you web server, you can host the application)
+  - sudo apt update (to update your machine)
+  - sudo apt install nginx (install nginx)
+  - sudo systemctl start nginx (start nginx)
+  - sudo systemctl enable nginx (to and run nginx)
+  - sudo scp -r dist/\* /var/www/html/ - Copy code from dist(build files) to /var/www/html (We are copy our dist to html folder)
+  - Enable port 80 of you instance (In AWS go to instance -> Security -> Security groups)
 
+  - Backend
+
+    - allowed ec2 instance public IP on mongodb server
+    - npm install pm2 -g
     - pm2 start npm -- start - commands available(pm2) - pm2 list, pm2 flush <name>, pm2 stop <name>, pm2 delete <name>
     - config nginx - /etc/nginx/sites-available/default
     - restart nginx - sudo systemctl restart nginx
