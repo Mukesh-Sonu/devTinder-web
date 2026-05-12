@@ -1,21 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = null;
+const initialState = {
+  users: [],
+  page: 1,
+  hasMore: true,
+};
 
 export const feedSlice = createSlice({
   name: "feed",
   initialState,
   reducers: {
-    addFeed: (state, action) => {
-      return action.payload;
+    setFeed: (state, action) => {
+      (state.users = action.payload.data),
+        (state.page = action.payload.page),
+        (state.hasMore = action.payload.hasMore);
     },
-    removeFeed: () => {
-      return null;
+    appendFeed: (state, action) => {
+      state.users.push(...action.payload.data);
+      state.page = action.payload.page;
+      state.hasMore = action.payload.hasMore;
+    },
+    removeUserFromFeed: (state, action) => {
+      state.users = state.users.filter((user) => user._id !== action.payload);
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addFeed, removeFeed } = feedSlice.actions;
+export const { setFeed, removeUserFromFeed, appendFeed } = feedSlice.actions;
 
 export default feedSlice.reducer;

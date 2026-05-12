@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-300 shadow-sm">
       <div className="flex-1">
-        <Link to="/feed" className="btn btn-ghost text-xl">
+        <Link to="/feed" className="btn btn-ghost text-xl underline">
           🧑‍💻 DevTinder
         </Link>
       </div>
@@ -53,7 +53,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-lg dropdown-content bg-base-300 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
                 <Link to="/profile">Profile</Link>

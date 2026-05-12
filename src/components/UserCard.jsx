@@ -1,4 +1,4 @@
-const UserCard = ({ user, disableAction = false }) => {
+const UserCard = ({ user, disableAction = false, onCardAction = () => {} }) => {
   const {
     firstName = "",
     lastName = "",
@@ -7,6 +7,7 @@ const UserCard = ({ user, disableAction = false }) => {
     about,
     photoUrl,
     skills = [],
+    _id,
   } = user;
 
   const transformedSkills =
@@ -17,14 +18,14 @@ const UserCard = ({ user, disableAction = false }) => {
           .filter(Boolean)
       : skills;
 
-  const onInterested = () => {};
-
-  const onIgnore = () => {};
-
   return (
     <div className="card bg-base-200 w-96 shadow-sm">
       <figure>
-        <img src={photoUrl} alt="Shoes" />
+        <img
+          className="object-contain max-h-70 w-full"
+          src={photoUrl}
+          alt="profile-pic"
+        />
       </figure>
       <div className="card-body">
         <h2 className="card-title">
@@ -51,7 +52,6 @@ const UserCard = ({ user, disableAction = false }) => {
         {about && <p>{about}</p>}
 
         {transformedSkills.length > 0 && (
-          // <p>Skills: {transformedSkills.join(",")}</p>
           <p className="mt-2">
             <span className="text-base font-bold mr-2">Skills:</span>
             {transformedSkills.map((skill, index) => (
@@ -64,8 +64,18 @@ const UserCard = ({ user, disableAction = false }) => {
         )}
         {!disableAction && (
           <div className="card-actions justify-center my-2">
-            <button className="btn btn-primary">Ignore</button>
-            <button className="btn btn-secondary">Interested</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => onCardAction("ignored", _id)}
+            >
+              Ignore
+            </button>
+            <button
+              className="btn btn-secondary"
+              onClick={() => onCardAction("interested", _id)}
+            >
+              Interested
+            </button>
           </div>
         )}
       </div>

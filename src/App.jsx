@@ -3,7 +3,6 @@ import { store } from "./utils/appStore";
 import { Provider } from "react-redux";
 import Body from "./components/Body";
 import Login from "./components/Login";
-import Profile from "./components/Profile";
 import Feed from "./components/Feed";
 import EditProfile from "./components/EditProfile";
 import Connections from "./components/Connections";

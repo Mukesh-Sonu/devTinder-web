@@ -39,11 +39,6 @@ const Requests = () => {
       );
 
       const data = response.data.data;
-
-      const updatedRequestData = requests.filter(
-        ({ fromUserId }) => fromUserId._id !== data.fromUserId
-      );
-
       dispatch(removeRequest(data));
 
       toast.success(response.data.message, {
@@ -83,10 +78,7 @@ const Requests = () => {
           >
             <li className="list-row">
               <div className="flex items-center">
-                <img
-                  className="rounded-full w-30 h-30 object-cover"
-                  src={photoUrl}
-                />
+                <img className="rounded-full w-30 h-30 ob" src={photoUrl} />
               </div>
               <div>
                 <p className="text-xl font-bold opacity-90">
