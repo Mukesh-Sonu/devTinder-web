@@ -8,7 +8,7 @@
 - git clone backend and frontend from github
 - frontend
 
-  - install dependencies using npm
+  - install dependencies using npm (both frontend and backend)
   - run npm run build (dist folder created)
   - install ngnix(provides you web server, you can host the application)
   - sudo apt update (to update your machine)
@@ -21,9 +21,10 @@
   - Backend
 
     - allowed ec2 instance public IP on mongodb server
+    - add port to aws in Securoty groups where port 80 added
     - npm install pm2 -g
     - pm2 start npm -- start - commands available(pm2) - pm2 list, pm2 flush <name>, pm2 stop <name>, pm2 delete <name>
-    - config nginx - /etc/nginx/sites-available/default
+    - config nginx - sudo nano /etc/nginx/sites-available/default
     - restart nginx - sudo systemctl restart nginx
     - Modify the BASEURL in frontend project to "/api"
 
