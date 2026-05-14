@@ -31,7 +31,6 @@ const Chat = () => {
       });
 
       const chats = reposne.data.data;
-      console.log(chats, "Chats");
 
       setMessages(chats);
     } catch (error) {
