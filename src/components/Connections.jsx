@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router";
 
 import { addConnections } from "../utils/connectionSlice";
 import { autoClose, BASE_URL, position } from "../utils/constants";
@@ -46,10 +47,10 @@ const Connections = () => {
       {connections.map(
         ({ firstName, lastName, about, photoUrl, age, gender, _id }) => (
           <ul
-            className="list bg-base-300 rounded-box shadow-md w-md mt-4"
+            className="list bg-base-300 rounded-box shadow-md w-3xl mt-4"
             key={_id}
           >
-            <li className="list-row">
+            <li className="list-row items-center">
               <div className="flex items-center">
                 <img
                   className="rounded-full w-30 h-30 object-cover"
@@ -70,6 +71,10 @@ const Connections = () => {
                   {about}
                 </div>
               </div>
+
+              <Link to={`/chat/${_id}`}>
+                <button className="btn btn-primary">Chat</button>
+              </Link>
             </li>
           </ul>
         )
